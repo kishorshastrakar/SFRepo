@@ -21,7 +21,7 @@ public class AccessControlUtility {
     public static SObject viewAsUser(SObject devObj, List<Schema.SObjectField> fieldsToSet) {
         // start from a fresh sObject of same type and only set fields the user is allowed to set
         sObject cleanObj = devObj.getSObjectType().newSObject();
-        // 
+
         // set all fields that were requested and the user has permission to set - throw an exception if a field was requested 
         //and user can't set and in ALL_OR_NONE mode           
         for (Schema.SObjectField field : fieldsToSet) {
