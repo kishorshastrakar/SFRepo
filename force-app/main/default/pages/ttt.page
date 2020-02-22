@@ -1,0 +1,28 @@
+<apex:page standardController="Contract" extensions="ContractDetailsController" tabStyle="Contract">
+    <apex:form id="myForm">
+        <apex:pageBlock title="Contract Details" >
+            <apex:pageMessages id="pgMsg"/>
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!insertRecord}" value="Insert" rerender="myForm"/>
+                <apex:commandButton action="{!updateRecord}" value="Update" rerender="myForm"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="Basic Details">
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.Contract.fields.Name.label}" />
+                    <apex:inputField value="{!conStdRecord.Name}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.Contract.fields.OwnerId.label}" />
+                    <apex:inputField value="{!conStdRecord.OwnerId}" />
+                </apex:pageBlockSectionItem>
+                <apex:pageBlockSectionItem >
+                    <apex:outputLabel value="{!$ObjectType.Contract.fields.ContractNumber.label}" />
+                    <apex:inputField value="{!conStdRecord.ContractNumber}" />
+                </apex:pageBlockSectionItem>
+                 </apex:pageBlockSection>
+            <apex:pageBlockSection title="Contact Details">              
+               
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

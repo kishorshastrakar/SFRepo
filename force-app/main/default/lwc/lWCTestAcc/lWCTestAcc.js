@@ -1,0 +1,1 @@
+import { LightningElement } from 'lwc';export default class lWCTestAcc extends LightningElement {}

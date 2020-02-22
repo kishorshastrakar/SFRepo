@@ -1,0 +1,53 @@
+<apex:page standardController="Contact" extensions="listViewRecords">
+<apex:form id="formId">
+<apex:pageBlock id="pbId">
+    <apex:pageBlockTable value="{!Lists}" var="st" >  
+    <apex:column headerValue="Firstname">
+        <apex:outputField value="{!st.FirstName}"/>
+    </apex:column>
+    <apex:column headerValue="Lastname">
+        <apex:outputField value="{!st.LastName}"/>
+    </apex:column>
+    <apex:column headerValue="Email">
+        <apex:outputField value="{!st.Email}"/>
+    </apex:column>
+    <apex:column headerValue="Othercountry">
+        <apex:outputField value="{!st.OtherCountry}"/>
+    </apex:column>
+    <apex:column headerValue="Mobilephone">
+        <apex:outputField value="{!st.MobilePhone}"/>
+    </apex:column>
+  
+    
+    <apex:column headerValue="Otherstate">
+        <apex:outputField value="{!st.OtherState}"/>
+    </apex:column>
+  
+    
+    <apex:column headerValue="Otherpostalcode">
+        <apex:outputField value="{!st.OtherPostalCode}"/>
+    </apex:column>
+  
+    <apex:column > 
+                    <apex:outputLink value="/apex/CreateRecordVFPage?id={!st.id}" title="Edit Contact">Edit
+         
+          </apex:outputLink>
+      </apex:column> 
+       <apex:column > 
+          <apex:commandLink action="{!deleteData}"  value="Delete" title="Delete Contact" reRender="pbId">
+         			<apex:param name="contIdParam" value="{!st.Id}" assignTo="{!contIdChosen}"/>
+          </apex:commandLink>
+      </apex:column>
+       
+    
+    </apex:pageBlockTable>
+      Page:<apex:outputText value="{!pageNumber} of {!totalPages}"/>
+        <apex:pageBlockButtons >
+			<apex:commandButton value="First Page" rerender="pbId" action="{!FirstPage}" disabled="{!prev}"/>
+			<apex:commandButton value="Previous" rerender="pbId" action="{!previous}" disabled="{!prev}"/>
+			<apex:commandButton value="Next" rerender="pbId" action="{!next}" disabled="{!nxt}"/>
+			<apex:commandButton value="Last Page" rerender="pbId" action="{!LastPage}" disabled="{!nxt}"/>
+		</apex:pageBlockButtons>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

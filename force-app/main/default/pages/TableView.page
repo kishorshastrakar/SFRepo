@@ -1,0 +1,37 @@
+<apex:page Controller="TableViewController" readOnly="true"  sidebar="false">
+    <head>
+        <apex:includescript value="//code.jquery.com/jquery-1.11.1.min.js"/>
+        <apex:includescript value="//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"/>
+        <apex:stylesheet value="//cdn.datatables.net/1.10.4/css/jquery.dataTables.css"/>
+        <script>
+        j$ = jQuery.noConflict();
+        j$(document).ready( function () {
+            var accTable = j$('[id$="accTable"]').DataTable({    
+            });
+        });         
+        function functionTest(id){
+            window.open('/apex/CreatePage?id='+id);
+        }        
+        </script>
+    </head>
+    <body>
+        <table id="accTable" class="display" style="margin-top:1%;">
+            <thead> 
+                <tr>
+                <th>State</th>
+                <th>Line1</th>
+                <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <apex:repeat value="{!dataList}" var="acc">
+                    <tr> 
+                    <td> {!acc.State__c}</td> 
+                    <td> {!acc.Line1__c}</td>
+                   <td> <apex:outputLink value="/{!acc.id}"  target="_blank"  >View</apex:outputLink> </td>
+                </tr>
+                </apex:repeat>
+            </tbody>
+        </table>
+    </body>
+</apex:page>

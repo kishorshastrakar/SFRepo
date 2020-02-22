@@ -1,0 +1,33 @@
+<apex:page controller="CreateRecord">
+<apex:pageBlock >
+<apex:form >
+<apex:pageMessages id="showmsg"></apex:pageMessages>
+<apex:pageBlockSection title="Create / Update Contact">
+    <apex:panelGrid columns="2" styleClass="panelGridCenter">
+       
+                 Firstname : <apex:inputField style="width:200px"  value="{!contact.FirstName}"></apex:inputField>
+        
+                 Lastname : <apex:inputField style="width:200px"  value="{!contact.LastName}"></apex:inputField>
+        
+                 Email : <apex:inputField style="width:200px"  value="{!contact.Email}"></apex:inputField>
+        
+                 Othercountry : <apex:inputField style="width:200px"  value="{!contact.OtherCountry}"></apex:inputField>
+        
+                 Mobilephone : <apex:inputField style="width:200px"  value="{!contact.MobilePhone}"></apex:inputField>
+        
+                 Otherstate : <apex:inputField style="width:200px"  value="{!contact.OtherState}"></apex:inputField>
+        
+                 Otherpostalcode : <apex:inputField style="width:200px"  value="{!contact.OtherPostalCode}"></apex:inputField>
+        
+         
+       <apex:panelGrid columns="2" > 
+                   <apex:commandButton rerender="showmsg"   action="{!save}" value="save"></apex:commandButton>
+    		<apex:commandButton action="{!cancel}" value="cancel"></apex:commandButton>
+
+        </apex:panelGrid>
+    </apex:panelGrid>
+</apex:pageBlockSection>
+</apex:form>
+<apex:include pageName="ListView"/> 
+</apex:pageBlock>
+</apex:page>
